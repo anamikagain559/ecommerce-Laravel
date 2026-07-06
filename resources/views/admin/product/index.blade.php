@@ -8,8 +8,10 @@
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">Product List </h6>
-                <br>
+                <div class="d-flex justify-content-between align-items-center mg-b-15">
+                    <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Product List</h6>
+                    <a href="{{ route('add.product') }}" class="btn btn-sm btn-warning"><i class="fa fa-plus mg-r-10"></i> Add New</a>
+                </div>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>

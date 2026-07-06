@@ -11,9 +11,10 @@
         </nav>
         <div class="sl-pagebody">
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">New Product Add <a href="#" class="btn btn-success btn-sm pull-right">All
-                        Product</a></h6>
-                <p class="mg-b-20 mg-sm-b-30">New product add form</p>
+                <div class="d-flex justify-content-between align-items-center mg-b-15">
+              <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Add New Product</h6>
+              <a href="{{ route('all.product') }}" class="btn btn-sm btn-success"><i class="fa fa-list mg-r-10"></i> All Products</a>
+          </div>
                 <form action="{{ route('store.product') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
@@ -197,9 +198,10 @@
 
                         <br><br>
                         <hr>
-                        <div class="form-layout-footer">
-                            <button class="btn btn-info mg-r-5" type="submit">Submit </button>
-                        </div><!-- form-layout-footer -->
+                        <div class="form-layout-footer text-center mg-t-30">
+              <button class="btn btn-info pd-x-20 mg-r-5"><i class="fa fa-save mg-r-10"></i> Save Product</button>
+              <button class="btn btn-secondary pd-x-20">Cancel</button>
+            </div><!-- form-layout-footer -->
                     </div><!-- form-layout -->
                 </form>
             </div><!-- card -->

@@ -8,11 +8,12 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Category Update
-          	
-          </h6>
+          <div class="d-flex justify-content-between align-items-center mg-b-15">
+              <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Category Update</h6>
+              <a href="{{ route('categories') }}" class="btn btn-sm btn-info"><i class="fa fa-list mg-r-10"></i> All Categories</a>
+          </div>
           <br>
-          <div class="table-wrapper">
+          <div class="form-layout">
               @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
@@ -24,18 +25,15 @@
               @endif
             <form method="post" action="{{ url('update/category/'.$category->id) }}">
               @csrf
-              <div class="modal-body pd-20">
-                <div class="form-group">
-                	{{-- <input type="hidden" name="id" value="{{$category_id }}"> --}}
-                  <label for="exampleInputEmail1">Category Name</label>
+              <div class="form-group pd-b-20">
+                  <label class="form-control-label">Category Name: <span class="tx-danger">*</span></label>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $category->category_name }}" name="category_name">
-                </div>
-              </div><!-- modal-body -->
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-info pd-x-20">Update</button>
+              </div>
+              <div class="form-layout-footer text-center mg-t-30">
+                <button type="submit" class="btn btn-info pd-x-20"><i class="fa fa-save mg-r-10"></i> Update Category</button>
               </div>
             </form>
-          </div><!-- table-wrapper -->
+          </div><!-- form-layout -->
         </div><!-- card -->
       </div><!-- sl-pagebody -->
 

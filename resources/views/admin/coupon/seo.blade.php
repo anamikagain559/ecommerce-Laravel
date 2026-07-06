@@ -11,8 +11,9 @@
       </nav>
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">SEO Setting </h6>
-          <p class="mg-b-20 mg-sm-b-30">New Post add form</p>
+                <div class="d-flex justify-content-between align-items-center mg-b-15">
+                    <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">SEO Setting</h6>
+                </div><p class="mg-b-20 mg-sm-b-30">New Post add form</p>
           <form action="{{ route('update.seo') }}" method="post" >
           	@csrf
           
@@ -71,7 +72,7 @@
 
             <br><br><hr>
             <div class="form-layout-footer">
-              <button class="btn btn-info mg-r-5" type="submit">Submit </button>
+                            <button type="submit" class="btn btn-info pd-x-20"><i class="fa fa-save mg-r-10"></i> Update</button>
             </div><!-- form-layout-footer -->
           </div><!-- form-layout -->
           </form>

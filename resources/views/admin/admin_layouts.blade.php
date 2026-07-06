@@ -45,6 +45,430 @@
     <link rel="stylesheet" href="{{ asset('backend/css/starlight.css') }}">
     <link href="{{ asset('backend/lib/datatables/jquery.dataTables.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Premium Dashboard Overrides */
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: #f4f7f6;
+            color: #334155;
+        }
+
+        /* Sidebar Styling */
+        .sl-sideleft {
+            background-color: #0f172a !important; /* Sleek Slate Dark */
+            border-right: none !important;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+        .sl-logo {
+            background-color: #0b1120 !important;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 800;
+            font-size: 22px;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+        }
+        .sl-logo a {
+            color: #f8fafc !important;
+            text-decoration: none;
+        }
+        .sl-logo i {
+            color: #6366f1 !important;
+            margin-right: 8px;
+            font-size: 26px;
+        }
+        .sl-sideleft-menu {
+            padding: 15px 12px;
+        }
+        .sl-sideleft-menu .sl-menu-link {
+            border-radius: 10px;
+            margin-bottom: 8px;
+            padding: 12px 18px;
+            border: none !important;
+            transition: all 0.3s ease;
+            color: #94a3b8 !important;
+            display: flex;
+            align-items: center;
+        }
+        .sl-sideleft-menu .sl-menu-link:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #e2e8f0 !important;
+            transform: translateX(4px);
+        }
+        .sl-sideleft-menu .sl-menu-link.active {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+        }
+        .sl-sideleft-menu .sl-menu-link .menu-item-label {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+        .sl-sideleft-menu .sl-menu-link .menu-item-icon {
+            color: inherit;
+            font-size: 22px;
+            margin-right: 15px;
+        }
+        .sl-menu-sub {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        .sl-menu-sub .nav-link {
+            color: #64748b;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            font-size: 13.5px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+        .sl-menu-sub .nav-link:hover {
+            color: #f8fafc;
+            background-color: rgba(255,255,255,0.03);
+            padding-left: 20px;
+        }
+        
+        /* Search Input in Sidebar */
+        .input-group-search {
+            margin: 25px 12px 20px 12px; /* Exact same gap as the menu */
+            width: calc(100% - 24px) !important; /* Prevent 100% width + margin overflow */
+            border-radius: 30px; /* Pill Shape */
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: row-reverse; /* Moves the icon to the left */
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .input-group-search:focus-within {
+            border-color: #6366f1;
+            background: rgba(255,255,255,0.07);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+        }
+        .input-group-search input {
+            background: transparent !important;
+            border: none !important;
+            color: #fff !important;
+            box-shadow: none !important;
+            padding: 12px 15px 12px 5px;
+            width: 100%;
+            font-size: 14px;
+        }
+        .input-group-search input:focus {
+            outline: none;
+        }
+        .input-group-search input::placeholder {
+            color: #64748b;
+            letter-spacing: 0.5px;
+        }
+        .input-group-search .input-group-btn {
+            display: flex;
+        }
+        .input-group-search button {
+            background: transparent !important;
+            color: #818cf8 !important; /* Soft Indigo */
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px 0 18px; /* Padding for the left icon */
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .input-group-search button:hover {
+            color: #c7d2fe !important;
+        }
+
+        /* Header Styling */
+        .sl-header {
+            background-color: #0b1120 !important; /* Premium Dark/Black */
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navbar Collapse & Notification Icons */
+        .navicon-left a, .navicon-right a {
+            color: #94a3b8 !important;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+        .navicon-left a:hover, .navicon-right a:hover {
+            color: #ffffff !important;
+            background-color: rgba(255,255,255,0.05);
+        }
+        .navicon-right .square-8 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #0b1120; /* Match header background */
+            top: 6px;
+            right: 6px;
+        }
+
+        .nav-link-profile {
+            color: #f8fafc !important; /* White text for dark header */
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .nav-link-profile img {
+            border: 2px solid #6366f1;
+            padding: 2px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        
+        /* Width Adjustments */
+        @media (min-width: 992px) {
+            body:not(.collapsed-menu) .sl-sideleft, 
+            body:not(.collapsed-menu) .sl-logo {
+                width: 270px !important;
+            }
+            body:not(.collapsed-menu) .sl-header {
+                left: 270px !important;
+            }
+            body:not(.collapsed-menu) .sl-mainpanel {
+                margin-left: 270px !important;
+            }
+            
+            /* Fix Logo position when collapsed */
+            .collapsed-menu .sl-logo {
+                left: -270px !important;
+            }
+            
+            /* Ensure collapsed menu icons are centered correctly */
+            .collapsed-menu .sl-sideleft-menu {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .collapsed-menu .sl-sideleft-menu .sl-menu-link {
+                padding: 0;
+                justify-content: center;
+                border-radius: 50%;
+                width: 46px;
+                height: 46px;
+                margin: 8px auto !important;
+                display: flex;
+                align-items: center;
+            }
+            .collapsed-menu .sl-sideleft-menu .menu-item-icon {
+                margin: 0 !important;
+                transform: none !important; /* Override Starlight's -4px shift */
+            }
+            .collapsed-menu .sl-sideleft-menu .menu-item-label,
+            .collapsed-menu .sl-sideleft-menu .menu-item-arrow {
+                display: none !important;
+            }
+            
+            /* Fix Search Bar in Collapsed Mode */
+            .collapsed-menu .input-group-search {
+                margin: 20px auto !important;
+                width: 45px !important;
+                height: 45px;
+                padding: 0;
+                border-radius: 50%;
+                border: none;
+                background: rgba(255,255,255,0.05);
+                justify-content: center;
+            }
+            .collapsed-menu .input-group-search input {
+                display: none !important;
+            }
+            .collapsed-menu .input-group-search button {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            .collapsed-menu .input-group-search .input-group-btn {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        /* Remove Default Starlight Navicon Backgrounds */
+        .navicon-left, .navicon-right {
+            background-color: transparent !important;
+        }
+
+        /* Page Titles */
+        .sl-page-title h5 {
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: -0.5px;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .sl-page-title p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Cards and Elements */
+        .card {
+            border: none !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+        }
+        .card-body-title {
+            font-weight: 700;
+            color: #334155;
+            font-size: 18px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .sl-pagebody {
+            padding: 30px;
+        }
+
+        /* Tables Modernization */
+        .table-wrapper {
+            background: #fff;
+            border-radius: 12px;
+        }
+        table.dataTable.no-footer {
+            border-bottom: none !important;
+        }
+        table.table {
+            border: none !important;
+            color: #475569;
+        }
+        table.table thead th {
+            background-color: #f8fafc !important;
+            color: #64748b !important;
+            font-weight: 600 !important;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e2e8f0 !important;
+            border-top: none !important;
+            padding: 15px;
+        }
+        table.table tbody td {
+            border-bottom: 1px solid #f1f5f9;
+            padding: 15px;
+            vertical-align: middle;
+        }
+        table.table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+        table.table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Buttons Overrides */
+        .btn {
+            border-radius: 8px !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+            letter-spacing: 0.3px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .btn-info {
+            background-color: #3b82f6 !important;
+            border-color: #3b82f6 !important;
+        }
+        .btn-info:hover {
+            background-color: #2563eb !important;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+        .btn-danger {
+            background-color: #ef4444 !important;
+            border-color: #ef4444 !important;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626 !important;
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+        }
+        .btn-warning {
+            background-color: #f59e0b !important;
+            border-color: #f59e0b !important;
+            color: #fff !important;
+        }
+        .btn-warning:hover {
+            background-color: #d97706 !important;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Forms & Inputs */
+        .form-control {
+            border-radius: 8px !important;
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            background-color: #f8fafc;
+            color: #334155;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        label {
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        /* Modals */
+        .modal-content {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            background-color: #f8fafc;
+            border-bottom: 1px solid #f1f5f9;
+            border-radius: 16px 16px 0 0;
+            padding: 20px 25px;
+        }
+        .modal-header .tx-uppercase {
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.5px;
+        }
+        .modal-footer {
+            border-top: 1px solid #f1f5f9;
+            padding: 20px 25px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
 </head>
 
 <body>

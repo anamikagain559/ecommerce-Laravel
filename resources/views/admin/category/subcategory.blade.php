@@ -8,15 +8,15 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Sub-Category List
-          	<a href="#" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">Add New</a>
-          </h6>
-          <br>
+          <div class="d-flex justify-content-between align-items-center mg-b-15">
+              <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Sub Category List</h6>
+              <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modaldemo3"><i class="fa fa-plus mg-r-10"></i> Add New</a>
+          </div>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-15p">ID</th>
+                  <th class="wd-15p">Sub-Category Name</th>
                   <th class="wd-15p">Category Name</th>
                   <th class="wd-20p">Action</th>
                 </tr>
@@ -27,8 +27,8 @@
                   <td>{{ $row->subcategory_name }}</td>
                   <td>{{ $row->category_name }}</td>
                   <td>
-                  	<a href="{{ URL::to('edit/subcategory/'.$row->id) }}" class="btn btn-sm btn-info">edit</a>
-                  	<a href="{{ URL::to('delete/subcategory/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">delete</a>
+                  	<a href="{{ URL::to('edit/subcategory/'.$row->id) }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                  	<a href="{{ URL::to('delete/subcategory/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                   </td>
                  
                 </tr>

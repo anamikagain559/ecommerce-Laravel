@@ -8,10 +8,10 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Brand List
-          	<a href="#" class="btn btn-sm btn-warning" style="float: right;" data-toggle="modal" data-target="#modaldemo3">Add New</a>
-          </h6>
-          <br>
+                <div class="d-flex justify-content-between align-items-center mg-b-15">
+                    <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Brand List</h6>
+                    <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modaldemo3"><i class="fa fa-plus mg-r-10"></i> Add New</a>
+                </div>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
@@ -29,8 +29,8 @@
                   <td>{{ $row->brand_name }}</td>
                   <td><img src="{{ URL::to($row->brand_logo) }}" height="70px;" width="80px;"></td>
                   <td>
-                  	<a href="{{ URL::to('edit/brand/'.$row->id) }}" class="btn btn-sm btn-info">edit</a>
-                  	<a href="{{ URL::to('delete/brand/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">delete</a>
+                  	<a href="{{ URL::to('edit/brand/'.$row->id) }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                  	<a href="{{ URL::to('delete/brand/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                   </td>
                  
                 </tr>

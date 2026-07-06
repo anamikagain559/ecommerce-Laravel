@@ -7,10 +7,10 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Subscriber List
-          	<a href="#" class="btn btn-sm btn-danger" style="float: right;" id="delete">All Delete</a>
-          </h6>
-          <br>
+                <div class="d-flex justify-content-between align-items-center mg-b-15">
+                    <h6 class="card-body-title tx-uppercase tx-14 tx-bold tx-inverse mg-b-0">Subscriber List</h6>
+                    <a href="#" class="btn btn-sm btn-danger" id="delete"><i class="fa fa-trash mg-r-10"></i> Delete All</a>
+                </div>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
@@ -28,7 +28,7 @@
                   <td>{{ $row->email }}</td>
                   <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForhumans() }} </td>
                   <td>
-                  	<a href="{{ URL::to('delete/sub/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">delete</a>
+                  	<a href="{{ URL::to('delete/sub/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete" title="Delete"><i class="fa fa-trash"></i></a>
                   </td>
                  
                 </tr>
